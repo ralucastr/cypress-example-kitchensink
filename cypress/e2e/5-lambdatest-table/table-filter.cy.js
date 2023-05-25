@@ -46,12 +46,15 @@ describe('Table Filters', () => {
       cy.get('table.table.table-filter')
             .find('tr')
             .filter(':visible')
-            .should('have.length', test.result);
-
-
-      if (test.filter !== 'button[data-target="all"]') {
-        cy.get(test.label).should('contain', test.text);
-      }       
+            .should('have.length', test.result)
+            .then(() => {
+                return test.filter !== 'button[data-target="all"]'
+                  ? cy.get(test.label).should('contain', test.text)
+                  : null;
+              });
+    //   if (test.filter !== 'button[data-target="all"]') {
+    //     cy.get(test.label).should('contain', test.text);
+    //   }       
     })
   })
 })
