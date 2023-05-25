@@ -51,24 +51,24 @@ describe('Table Pagination', () => {
 
     tests.forEach((test) => {
       cy.get('#maxRows')
-        .select(test.option)
+        .select(test.option);
       // cy.get('#table-id tr:visible:not(:first-child)')
       //   .should('have.length', test.result)
       cy.get('#table-id > tbody > tr:visible')
-        .should('have.length', test.result)
+        .should('have.length', test.result);
 
       cy.get('.pagination_sp > li')
-        .should('have.length', test.pages)
+        .should('have.length', test.pages);
     })
   })
 
   it('Can use the previous and next page buttons', () => {
-    cy.get('#maxRows').select('5')
+    cy.get('#maxRows').select('5');
 
-    cy.get('[data-page=next] > span').click()
-    cy.get('[data-page=next] > span').click()
+    cy.get('[data-page=next] > span').click();
+    cy.get('[data-page=next] > span').click();
 
-    cy.get('li.active').should('have.attr', 'data-page', '3')
+    cy.get('li.active').should('have.attr', 'data-page', '3');
     cy.get('#table-id td:visible:first').should('have.text', '11')
 
     cy.get('[data-page=prev] > span').click()
@@ -80,12 +80,12 @@ describe('Table Pagination', () => {
   it('Can use a specific page button', () => {
     cy.get('#maxRows').select('5')
 
-    cy.get('[data-page=5] > span').click()
+    cy.get('[data-page=5] > span').click();
 
-    cy.get('li.active').should('have.attr', 'data-page', '5')
+    cy.get('li.active').should('have.attr', 'data-page', '5');
 
     // the selector selects the first visible line of the table; selector ":visible" is specific to Cypress
-    cy.get('#table-id td:visible:first').should('have.text', '21')
-    cy.get('#table-id td:visible:last').should('have.text', 'Apr 16, 2016')
+    cy.get('#table-id td:visible:first').should('have.text', '21');
+    cy.get('#table-id td:visible:last').should('have.text', 'Apr 16, 2016');
   })
 })

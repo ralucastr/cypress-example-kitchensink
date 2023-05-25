@@ -41,6 +41,7 @@ describe('Table Filters', () => {
       }
     ]
 
+    // Use of the ternary operator vs the if statement
     tests.forEach((test) => {         
       cy.get(test.filter).click();
       cy.get('table.table.table-filter')
