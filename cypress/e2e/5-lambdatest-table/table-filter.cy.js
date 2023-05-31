@@ -15,12 +15,8 @@ describe('Table Filters', () => {
     );
   })
 
-  it('Filtering By Any Option Returns The Correct Records', () => {
-    const tests = [
-      {
-        filter: 'button[data-target="all"]',
-        result: 5 
-      },
+  it('Filtering By Any Color Option Returns The Correct Records', () => {
+    const tests = [     
       {
         filter: 'button[data-target="pagado"]',
         result: 2,
@@ -41,21 +37,20 @@ describe('Table Filters', () => {
       }
     ]
 
-    // Use of the ternary operator vs the if statement
     tests.forEach((test) => {         
       cy.get(test.filter).click();
       cy.get('table.table.table-filter')
             .find('tr')
             .filter(':visible')
             .should('have.length', test.result)
-            .then(() => {
-                return test.filter !== 'button[data-target="all"]'
-                  ? cy.get(test.label).should('contain', test.text)
-                  : null;
-              });
-    //   if (test.filter !== 'button[data-target="all"]') {
-    //     cy.get(test.label).should('contain', test.text);
-    //   }       
+            .should('contain', test.text);
     })
+  })
+
+  it('Clicking on the All Button Returns All Records', () => {
+    cy.get('button[data-target="all"]').click();
+    cy.get('table.table.table-filter')
+            .find('tr:visible')          
+            .should('have.length', 5)
   })
 })
