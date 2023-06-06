@@ -1,0 +1,1 @@
+import LoginPage from '../support/pages/LoginPage';
