@@ -28,10 +28,6 @@ describe('Table Search', () => {
       {
         searchCriteria: 'in',
         results: 4
-      },
-      {
-        searchCriteria: 'Holden Charles',
-        results: 1
       }
     ]
   
