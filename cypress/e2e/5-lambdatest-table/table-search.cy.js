@@ -25,10 +25,10 @@ describe('Table Search', () => {
           results: 3
         },
         {
-            title: 'Case Insensitivity',
-            searchCriteria: 'edinburgh',
-            results: 4
-          }
+          title: 'Case Insensitivity',
+          searchCriteria: 'edinburgh',
+          results: 4
+        }
       ]
     
     testCases.forEach((testCase) => {
@@ -42,14 +42,17 @@ describe('Table Search', () => {
                 .find('tr:visible')            
                 .should('have.length', testCase.results)
                 .each((row) => {
-            cy.wrap(row).contains(text, { matchCase: false });
+                    cy.wrap(row).contains(text, { matchCase: false });                   
+            })
         })
     })
 
-        // it('Search Returns No Results For Non-existent Values', () => {
-    //     })
-
-    // it('Pagination and Sorting', () => {
-    //     })
-})
+    it('Search Returns No Results For Non-existent Values', () => {
+        cy.get('input[type="search"][aria-controls="example"]')               
+          .clear()
+          .type('cat');
+        cy.get('#example > tbody')
+          .find('tr:visible')            
+          .should('have.length', 1);        
+        })
 })
