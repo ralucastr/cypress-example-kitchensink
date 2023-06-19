@@ -89,31 +89,31 @@ describe('Table Sort & Search Demo', () => {
   })
 })
  
-    // Summary:
-    // The testCases.forEach() loop iterates over each test case and executes 
-    // an individual test for sorting the specified column. 
+// Summary:
+// The testCases.forEach() loop iterates over each test case and executes 
+// an individual test for sorting the specified column. 
 
-    // Within the test, the column header is clicked the specified number of 
-    // times using cy.contains(column).click(). This triggers the sorting of 
-    // the table based on the clicked column.
+// Within the test, the column header is clicked the specified number of 
+// times using cy.contains(column).click(). This triggers the sorting of 
+// the table based on the clicked column.
 
-    // Next, a loop runs three times to verify the sorting order on the 
-    // displayed table. It iterates over each table cell with the ID 'example' 
-    // and class 'sorting_1' using cy.get('#example td.sorting_1').each(). 
-    // It compares the current item with the previous item to ensure they are 
-    // sorted correctly.
+// Next, a loop runs three times to verify the sorting order on the 
+// displayed table. It iterates over each table cell with the ID 'example' 
+// and class 'sorting_1' using cy.get('#example td.sorting_1').each(). 
+// It compares the current item with the previous item to ensure they are 
+// sorted correctly.
 
-    // If the descending flag is set to true and the previous item exists, 
-    // the sortedItems array is reversed to represent the descending order.
+// If the descending flag is set to true and the previous item exists, 
+// the sortedItems array is reversed to represent the descending order.
 
-    // Finally, the test asserts that the testItems array (which contains 
-    // the previous and current items) should have the same order as the 
-    // sortedItems array, using 
-    // expect(testItems).to.have.ordered.members(sortedItems).
+// Finally, the test asserts that the testItems array (which contains 
+// the previous and current items) should have the same order as the 
+// sortedItems array, using 
+// expect(testItems).to.have.ordered.members(sortedItems).
 
-    // After each iteration of the loop, if the index is less than 3, the 'Next' 
-    // button (with the ID 'example_next') is clicked using 
-    // cy.get('#example_next').click() to navigate to the next page.
+// After each iteration of the loop, if the index is less than 3, the 'Next' 
+// button (with the ID 'example_next') is clicked using 
+// cy.get('#example_next').click() to navigate to the next page.
     
 
    

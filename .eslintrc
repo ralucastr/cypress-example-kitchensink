@@ -17,7 +17,8 @@
     // TODO: remove after https://github.com/cypress-io/cypress-example-kitchensink/issues/661 has been resolved
     "cypress/unsafe-to-chain-command": "off",
     "mocha/no-exclusive-tests": "error",
-    "mocha/no-mocha-arrows": "off"
+    "mocha/no-mocha-arrows": "off",
+    "mocha/no-setup-in-describe": "off"
   },
   "parserOptions": { 
     "ecmaVersion": "latest" 
